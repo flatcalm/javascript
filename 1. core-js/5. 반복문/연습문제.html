@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // Math.random() : 0.0 이상 1.0 미만의 랜덤값.
+        // Math.floor() : 내림, Math.ceil() : 올림, Math.round() : 반올림
+        // var rn1 = Math.floor((Math.random()*100) + 1);
+        // console.log(rn1);
+
+        var cCount = 0, iCount = 0;
+
+        while(true) {
+            // 문제를 만들기 위한 정수 난수 두 개 생성
+            var rn1 = Math.floor((Math.random()*20) + 1);
+            var rn2 = Math.floor((Math.random()*20) + 1);
+
+            // 부호를 결정하기 위해 0 1 2의 랜덤 정수 난수 생성.
+            var rn3 = Math.floor(Math.random()*3);
+
+            var realAnswer, operatorMark;
+
+            if(rn3 === 0) {
+                operatorMark = '+';
+                realAnswer = rn1 + rn2;
+            } else if(rn3 === 1) {
+                operatorMark = '-';
+                realAnswer = rn1 - rn2;
+            } else {
+                operatorMark = 'x';
+                realAnswer = rn1 * rn2;
+            }
+
+            var answer = prompt(`${rn1} ${operatorMark} ${rn2} = ???`);
+
+            if(answer === '그만') {
+                break;
+            }
+
+            if(answer == realAnswer) {
+                alert('정답입니다!');
+                cCount++;
+            } else {
+                alert('오답입니다!');
+                iCount++;
+            }
+        }
+
+        alert(`프로그램이 종료되었습니다.
+        # 정답 횟수 : ${cCount}회, 오답 횟수 : ${iCount}회`);
+
+        /* 내가 한거
+        var ocount = 0;
+        var xcount = 0;
+
+        while(true) {
+            var num1 = Math.floor((Math.random()*20) + 1);
+            var num2 = Math.floor((Math.random()*20) + 1);
+            var n = Math.floor((Math.random()*3) + 1);
+
+            if(n == 1) {
+                var answer = prompt(num1 + " + " + num2 + " = ???");
+                if (answer == "그만") {
+                    break;
+                } else if (answer == num1+num2) {
+                    alert('정답입니다!');
+                    ocount++;
+                } else {
+                    alert('오답입니다.');
+                    xcount++;
+                }
+            }
+             else if(n == 2) {
+                var answer = prompt(num1 + " - " + num2 + " = ???");
+                if (answer == "그만") {
+                    break;
+                } else if (answer == num1-num2) {
+                    alert('정답입니다!');
+                    ocount++;
+                } else {
+                    alert('오답입니다.');
+                    xcount++;
+                }
+            }
+            else if(n == 3) {
+                var answer = prompt(num1 + " x " + num2 + " = ???");
+                if (answer == "그만") {
+                    break;
+                } else if (answer == num1*num2) {
+                    alert('정답입니다!');
+                    ocount++;
+                } else {
+                    alert('오답입니다.');
+                    xcount++;
+                }
+            }
+        }
+
+         alert('정답 횟수 : ' + ocount + '개\n오답 횟수 : ' + xcount + '개');
+
+        */
+        
+
+        /*
+        var answer, result;
+
+        while(answer != "그만") {
+            var num1 = Math.floor((Math.random()*20) + 1);
+            var num2 = Math.floor((Math.random()*20) + 1);
+            var n = Math.floor((Math.random()*3) + 1);
+            
+            if(n == 1) {
+                answer = prompt(num1 + " + " + num2 + " = ???");
+                answer == num1 + num2 ? ocount++ : xcount++;
+                result = answer == num1 + num2 ? '정답입니다!' : '오답입니다.';
+                alert(result);
+            }
+            if(n == 2) {
+                answer = prompt(num1 + " - " + num2 + " = ???");
+                answer == num1 - num2 ? ocount++ : xcount++;
+                result = answer == num1 - num2 ? '정답입니다!' : '오답입니다.';
+                alert(result);
+            }
+            if(n == 3) {
+                answer = prompt(num1 + " x " + num2 + " = ???");
+                answer == num1 * num2 ? ocount++ : xcount++;
+                result = answer == num1 * num2 ? '정답입니다!' : '오답입니다.';
+                alert(result);
+            }
+        }
+
+         alert('정답 횟수 : ' + ocount + '개\n오답 횟수 : ' + xcount + '개');
+
+        */
+
+    </script>
+
+</body>
+</html>
