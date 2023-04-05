@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--
+        1. 다음 체크박스 버튼을 클릭했을 때
+        '동의했습니다!' 경고창을 띄우고
+        value값을 같이 찍어 주세요.
+        (checked -> 체크 했는지의 여부)
+    -->
+    <input type="checkbox" value="1" class="q1"> 조항1
+    <input type="checkbox" value="2" class="q1"> 조항2
+    <input type="checkbox" value="3" class="q1"> 조항3
+    <input type="checkbox" value="4" class="q1"> 조항4
+
+    <br>
+
+    <!--
+        2. 확인 버튼을 클릭했을 때
+        input 태그의 공백 여부, 체크 여부를 확인하세요.
+    -->
+    ID : <input type="text" id="id">
+    기억하기 <input type="checkbox" id="remember">
+    <button id="check2">확인</button>
+
+    <script>
+        // const $body = document.querySelector('body');
+        // console.log($body);
+        const $q1 = document.querySelectorAll('.q1');
+        console.log($q1);
+        const $btn = document.querySelector('#check2');
+        console.log($btn);
+
+        // // $body.addEventListener('change', e => {
+
+        //     if([...$q1].textContent = e.target.checked) alert('동의했습니다!' + e.target.value);
+
+        // // })
+
+        for (let $q of $q1) {
+            $q.addEventListener('change', e => {
+                if ([...$q1].textContent = e.target.checked) alert('동의했습니다! ' + e.target.value);
+            })
+        }
+
+        $btn.addEventListener('click', e => {
+            if (document.querySelector('#id').value === '') alert('아이디는 필수 값입니다!');
+            else {
+                if (!document.querySelector('#remember').checked) alert('기억하기를 체크하지 않았습니다!');
+            }
+        })
+    </script>
+
+</body>
+
+</html>
