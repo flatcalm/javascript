@@ -127,7 +127,7 @@
                 $body.classList.toggle('dark');
                 $btn1.textContent = '밝게 보기';
             }
-        })      
+        });
         /*
         클래스 이름을 통해서 이름 보기 모드인지를 확인.
         안에 있는 내용들은 innerHTML로 삽입.
@@ -139,7 +139,7 @@
         const $p = document.querySelector('.content .right .inner p')       
         btn2.addEventListener('click', e => {
             if ($btn2.classList.contains('name')) {
-                $p.textContent = '홍길동<br>20세<br>능력단위<br>Java, Oracle, Jsp, CSS, JavaScript';
+                $p.innerHTML = '홍길동<br>20세<br>능력단위<br>Java, Oracle, Jsp, CSS, JavaScript';
                 $btn2.textContent = '내용 보기';
                 $btn2.classList.toggle('name');
             } else {
@@ -150,7 +150,7 @@
                 $btn2.textContent = '이름 보기';
                 $btn2.classList.toggle('name');
             }
-        })      
+        }); 
         /*
         메모장 보기 모드는 textarea를 생성해서 추가.
         클래스 이름 memo 속성을 추가해 주세요.
@@ -158,7 +158,48 @@
         .left 안에 있는 .inner의 모든 자식 노드를 제거하고
         생성하신 요소를 추가해 주시면 되겠습니다.
         */
+        const $btn3 = document.querySelector('#btn3');
+        const $left = document.querySelector('.left');
+        const $inner = document.querySelector('.left .inner');
+        // console.log($inner);
+        // console.log($inner.children);
         
+        $btn3.addEventListener('click', e => {
+            if (!$inner.classList === 'inner') {
+                $inner.classList.toggle('memo');
+                for(let $in of [...$inner.children]) {
+                    $inner.removeChild($in);
+                }
+                const $flag = document.createDocumentFragment();
+                const $textArea = document.createElement('textarea');
+                $flag.appendChild($textArea);
+                $inner.appendChild($flag);
+                $btn3.textContent = '사진 모드';
+            } else if ($inner.classList.contains('memo')) {
+                $inner.classList.toggle('memo');
+                // $inner.removeChild($inner.children);
+                for(let $in of [...$inner.children]) {
+                    $inner.removeChild($in);
+                }
+                const $flag = document.createDocumentFragment();
+                const $img = document.createElement('img');
+                $img.src = './img/1.jpg';
+                $img.alt = 'pic';
+                $flag.appendChild($img);
+                $inner.appendChild($flag);
+                $btn3.textContent = '메모장 모드';
+            } else if (!$inner.classList.contains('memo')) {
+                $inner.classList.toggle('memo');
+                for(let $in of [...$inner.children]) {
+                    $inner.removeChild($in);
+                }
+                const $flag = document.createDocumentFragment();
+                const $textArea = document.createElement('textarea');
+                $flag.appendChild($textArea);
+                $inner.appendChild($flag);
+                $btn3.textContent = '사진 모드';
+            }
+        });
 
     </script>
 
