@@ -65,18 +65,41 @@
         3. data-id 값에 알맞는 태그에 active속성 추가.
         */
 
+        // 내가 한거
         const $toggleUl = document.querySelector('.toggle');
         const $toggleMenus = document.querySelectorAll('.toggle-menu');
         // const $div = document.querySelector('div');
 
         $toggleUl.addEventListener('click', e => {
             const id = e.target.dataset.id;
+            // [...$toggleMenus].forEach($t => {
+            //     if($t.classList.contains('active')) $t.classList.remove('active');
+            //     else return;
+            // });
+            // document.querySelector(id).classList.toggle('active');
             [...$toggleMenus].forEach($t => {
-                if($t.classList.contains('active')) $t.classList.remove('active');
-                else return;
-            });
-            document.querySelector(id).classList.toggle('active');
+                $t.classList.toggle('active', document.querySelector(e.target.dataset.id) === $t);
+            })
         });
+
+        // // 강사님
+        // const $toggle = document.querySelector('.toggle');
+        // $toggle.onclick = function(e) {
+        //     if(!e.target.matches('.toggle > li')) {
+        //         return;
+        //     }
+
+        //     const $toggleList = document.querySelectorAll('.toggle-menu');
+
+        //     // for(let $ele of [...$toggleList]) {
+        //     //     $ele.classList.toggle('active', document.querySelector(e.target.dataset.id) === $ele);
+        //     // };
+
+        //     [...$toggleList].forEach($ele => {
+        //         $ele.classList.toggle('active', document.querySelector(e.target.dataset.id) === $ele);
+        //     });
+        // };
+
 
     </script>
     
