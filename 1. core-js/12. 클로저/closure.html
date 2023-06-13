@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        /*
+        let count = 0; // 카운팅 변수 (전역 변수)
+
+        // 카운트를 올리는 함수
+        const increase = () => ++count;
+        // const increase = function () {
+        //     return ++count;
+        // }
+
+        console.log(increase());
+        console.log(increase());
+
+        count = 999;
+        console.log(increase()); // 3???
+        */
+
+        const increaseClosure = () => {
+            let count = 0; // 지역 변수
+
+            // return function() {
+            //     return ++count;
+            // };
+            return () => ++count;
+            
+        }
+
+        const increase = increaseClosure();
+
+        // count += 999;
+        console.log(increase());
+        console.log(increase());
+        console.log(increase());
+
+    </script>
+
+</body>
+</html>
